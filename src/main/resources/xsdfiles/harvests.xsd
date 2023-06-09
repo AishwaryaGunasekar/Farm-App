@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="harvests" type="harvestsType"/>
+
+  <xs:complexType name="harvestsType">
+    <xs:sequence>
+      <xs:element name="harvest" type="harvestType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="harvestType">
+    <xs:sequence>
+      <xs:element name="harvest_id" type="xs:int"/>
+      <xs:element name="field_id" type="xs:int"/>
+      <xs:element name="crop_id" type="xs:int"/>
+      <xs:element name="harvest_date" type="xs:date"/>
+      <xs:element name="harvested_quantity" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

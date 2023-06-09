@@ -2,13 +2,13 @@ package com.solvd.farmapp.services;
 
 import java.util.List;
 
-import com.solvd.farmapp.dao.FarmDAO;
-import com.solvd.farmapp.model.Farm;
+import com.solvd.farmapp.bin.Farm;
+import com.solvd.farmapp.dao.IFarmDAO;
 
-public class FarmServiceImpl implements FarmService {
-	private FarmDAO farmDAO;
+public class FarmServiceImpl implements IFarmService {
+	private IFarmDAO farmDAO;
 
-	public FarmServiceImpl(FarmDAO farmDAO) {
+	public FarmServiceImpl(IFarmDAO farmDAO) {
 		this.farmDAO = farmDAO;
 	}
 

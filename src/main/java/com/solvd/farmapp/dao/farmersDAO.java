@@ -7,8 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.*;
+
+import com.solvd.farmapp.bin.farmers;
 import com.solvd.farmapp.connections.ConnectionPool;
-import com.solvd.farmapp.model.farmers;
 
 public class farmersDAO {
 

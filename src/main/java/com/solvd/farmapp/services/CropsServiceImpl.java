@@ -1,13 +1,14 @@
 package com.solvd.farmapp.services;
 
 import java.util.List;
-import com.solvd.farmapp.dao.CropsDAO;
-import com.solvd.farmapp.model.crops;
 
-public class CropsServiceImpl implements CropsService {
-	private CropsDAO cropsDAO;
+import com.solvd.farmapp.bin.crops;
+import com.solvd.farmapp.dao.ICropsDAO;
 
-	public CropsServiceImpl(CropsDAO cropsDAO) {
+public class CropsServiceImpl implements ICropsService {
+	private ICropsDAO cropsDAO;
+
+	public CropsServiceImpl(ICropsDAO cropsDAO) {
 		this.cropsDAO = cropsDAO;
 	}
 

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Farm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<id>1</id>
+	<name>Sunny Family local farm </name>
+	<address>888 SFF Street</address>
+</Farm>

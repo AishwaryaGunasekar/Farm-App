@@ -1,23 +1,31 @@
 package com.solvd.farmapplication;
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.*;
 import java.util.List;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
-import com.solvd.farmapp.dao.CropsDAO;
+import com.solvd.farmapp.bin.crops;
+import com.solvd.farmapp.bin.harvests;
+import com.solvd.farmapp.bin.livestock;
+import com.solvd.farmapp.dao.ICropsDAO;
 import com.solvd.farmapp.dao.CropsDAOImpl;
-import com.solvd.farmapp.model.crops;
-import com.solvd.farmapp.dao.HarvestsDAO;
 
-import com.solvd.farmapp.services.HarvestsService;
+import com.solvd.farmapp.services.IHarvestsService;
 import com.solvd.farmapp.services.HarvestsServiceImpl;
-import com.solvd.farmapp.model.harvests;
-
-import com.solvd.farmapp.services.LivestockService;
+import com.solvd.farmapp.services.ILivestockService;
 import com.solvd.farmapp.services.LivestockServiceImpl;
-import com.solvd.farmapp.model.livestock;
 
 public class farmapplication {
 	public static void main(String[] args) {
@@ -31,7 +39,7 @@ public class farmapplication {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connection = DriverManager.getConnection(dbUrl, username, password);
-			CropsDAO cropsDAO = new CropsDAOImpl(connection);
+			ICropsDAO cropsDAO = new CropsDAOImpl(connection);
 			// Create a new crop
 			crops crop1 = new crops(8, "wheat", "Whrain", 80);
 			cropsDAO.save(crop1);
@@ -50,7 +58,7 @@ public class farmapplication {
 			cropsDAO.delete(fetchedCrop);
 
 			// Create a new instance of the service
-			HarvestsService harvestsService = new HarvestsServiceImpl();
+			IHarvestsService harvestsService = new HarvestsServiceImpl();
 
 			// Create a new harvest object
 			harvests harvest = new harvests(1, 1, 1, new Date(150322), 100);
@@ -86,7 +94,7 @@ public class farmapplication {
 			livestock livestck = new livestock(1, "Cow", "mari", "10");
 
 			// Create an instance of the service
-			LivestockService livestockService = new LivestockServiceImpl();
+			ILivestockService livestockService = new LivestockServiceImpl();
 
 			// Save the livestock
 			livestockService.saveLivestock(livestck);
@@ -104,7 +112,53 @@ public class farmapplication {
 			System.out.println("Retrieved livestock: " + retrievedLivestock);
 			connection.close();
 
+			
+		//FARMXMLParser 
+			String xmlFilePath1 = "farm.xml";
+
+	        
+	            // Create a DocumentBuilderFactory
+	            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+
+	            // Create a DocumentBuilder using the DOM parser
+	            DocumentBuilder builder = factory.newDocumentBuilder();
+
+	            // Parse the XML file
+	            Document document = builder.parse(new File(xmlFilePath1));
+
+	            // Get the root element
+	            Element rootElement = document.getDocumentElement();
+
+	            // Get the farm elements
+	            NodeList farmList = rootElement.getElementsByTagName("farm");
+
+	            // Process each farm element
+	            for (int i = 0; i < farmList.getLength(); i++) {
+	                Element farmElement = (Element) farmList.item(i);
+
+	                // Get the farm attributes
+	                int id = Integer.parseInt(farmElement.getAttribute("id"));
+	                String name = farmElement.getAttribute("name");
+	                String address = farmElement.getAttribute("address");
+
+	                // Printing  farm details
+	                LOGGER.info("Farm Details:");
+	                LOGGER.info("ID: " + id);
+	                LOGGER.info("Name: " + name);
+	                LOGGER.info("Address: " + address);
+	            
+	            }
+	 
 		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

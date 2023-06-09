@@ -1,14 +1,14 @@
 package com.solvd.farmapp.dao;
 
 
-import com.solvd.farmapp.model.harvests;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class HarvestsDAOImpl implements HarvestsDAO {
+import com.solvd.farmapp.bin.harvests;
+
+public class HarvestsDAOImpl implements IHarvestsDAO {
 
     // Simulating a database with a map
     private Map<Integer, harvests> harvestsMap;

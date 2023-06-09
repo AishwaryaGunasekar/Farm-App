@@ -1,8 +1,8 @@
 package com.solvd.farmapp.dao;
 
-import com.solvd.farmapp.model.livestock;
+import com.solvd.farmapp.bin.livestock;
 
-public class LivestockDAOImpl implements LivestockDAO {
+public class LivestockDAOImpl implements ILivestockDAO {
 
 	@Override
 	public void saveLivestock(livestock livestck) {

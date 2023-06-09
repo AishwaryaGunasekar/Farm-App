@@ -15,73 +15,77 @@ import java.util.List;
 import java.util.Properties;
 
 public class ConnectionPool {
-    private final static Logger LOGGER = LogManager.getLogger(ConnectionPool.class);
-    private static ConnectionPool connectionPool;
-    private int numConnections;
-    private Properties properties;
-    private List<Connection> connections = new ArrayList<>();
+	private final static Logger LOGGER = LogManager.getLogger(ConnectionPool.class);
+	private static ConnectionPool connectionPool;
+	private int numConnections;
+	private Properties properties;
+	private List<Connection> connections = new ArrayList<>();
 
-    private ConnectionPool(){
-        InputStream input;
-        properties = new Properties();
-        try {
-            input = new FileInputStream("src/main/resources/properties");
-            properties.load(input);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    public static ConnectionPool getInstance(){
-        if(connectionPool == null){
-            connectionPool = new ConnectionPool();
-        }
-        return connectionPool;
-    }
+	private ConnectionPool() {
+		InputStream input;
+		properties = new Properties();
+		try {
+			input = new FileInputStream("src/main/resources/properties");
+			properties.load(input);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException(e);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
-    public int getNumConnections() {
-        return numConnections;
-    }
+	public static ConnectionPool getInstance() {
+		if (connectionPool == null) {
+			connectionPool = new ConnectionPool();
+		}
+		return connectionPool;
+	}
 
-    public Connection getConnection(){
-        Connection connection;
-        while(numConnections > 4){
-            LOGGER.info("Unable to get connection at this moment.");
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                LOGGER.error("Thread was unable to put to sleep");
-                throw new RuntimeException(e);
-            }
-        }
-        if(connections.isEmpty()) {
-            try {
-                connection = DriverManager.getConnection(properties.getProperty("db.url"),
-                        properties.getProperty("db.user"), properties.getProperty("db.password"));
-                LOGGER.debug("Connection Successfully Established.");
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        }else{
-            LOGGER.debug("Successfully reused connection.");
-            connection = connections.get(0);
-            connections.remove(0);
-        }
-        addCounter();
-        return connection;
-    }
-    public void releaseConnection(Connection connection){
-        connections.add(connection);
-        if(numConnections > 0) {
-            subtractCounter();
-        }
-        LOGGER.debug("Connection Successfully released");
-    }
-    public synchronized void addCounter(){
-        numConnections++;
-    }
-    public synchronized void subtractCounter(){
-        numConnections--;
-    }
+	public int getNumConnections() {
+		return numConnections;
+	}
+
+	public Connection getConnection() {
+		Connection connection;
+		while (numConnections > 4) {
+			LOGGER.info("Unable to get connection at this moment.");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				LOGGER.error("Thread was unable to put to sleep");
+				throw new RuntimeException(e);
+			}
+		}
+		if (connections.isEmpty()) {
+			try {
+				connection = DriverManager.getConnection(properties.getProperty("db.url"),
+						properties.getProperty("db.user"), properties.getProperty("db.password"));
+				LOGGER.debug("Connection Successfully Established.");
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		} else {
+			LOGGER.debug("Successfully reused connection.");
+			connection = connections.get(0);
+			connections.remove(0);
+		}
+		addCounter();
+		return connection;
+	}
+
+	public void releaseConnection(Connection connection) {
+		connections.add(connection);
+		if (numConnections > 0) {
+			subtractCounter();
+		}
+		LOGGER.debug("Connection Successfully released");
+	}
+
+	public synchronized void addCounter() {
+		numConnections++;
+	}
+
+	public synchronized void subtractCounter() {
+		numConnections--;
+	}
 }

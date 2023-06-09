@@ -7,11 +7,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.solvd.farmapp.model.crops;
+import com.solvd.farmapp.bin.crops;
 
-public class CropsDAOImpl implements CropsDAO {
+public class CropsDAOImpl implements ICropsDAO {
+	
 	private Connection connection;
-
+	
 	public CropsDAOImpl(Connection connection) {
 		this.connection = connection;
 	}
@@ -80,7 +81,6 @@ public class CropsDAOImpl implements CropsDAO {
 			statement.setString(2, crop.getCrop_type());
 			statement.setInt(3, crop.getCrop_yield());
 			statement.setInt(4, crop.getCrop_id());
-
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -92,7 +92,6 @@ public class CropsDAOImpl implements CropsDAO {
 		String sql = "DELETE FROM crops WHERE crop_id = ?";
 		try (PreparedStatement statement = connection.prepareStatement(sql)) {
 			statement.setInt(1, crop.getCrop_id());
-
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -1,13 +1,12 @@
 package com.solvd.farmapp.services;
 
-import com.solvd.farmapp.dao.LivestockDAO;
+import com.solvd.farmapp.bin.livestock;
+import com.solvd.farmapp.dao.ILivestockDAO;
 import com.solvd.farmapp.dao.LivestockDAOImpl;
 
-import com.solvd.farmapp.model.livestock;
+public class LivestockServiceImpl implements ILivestockService {
 
-public class LivestockServiceImpl implements LivestockService {
-
-	private LivestockDAO livestockDAO;
+	private ILivestockDAO livestockDAO;
 
 	public LivestockServiceImpl() {
 		livestockDAO = new LivestockDAOImpl();

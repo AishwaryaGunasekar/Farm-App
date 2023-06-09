@@ -1,14 +1,13 @@
 package com.solvd.farmapp.services;
 
-import com.solvd.farmapp.dao.HarvestsDAO;
+import com.solvd.farmapp.bin.harvests;
+import com.solvd.farmapp.dao.IHarvestsDAO;
 import com.solvd.farmapp.dao.HarvestsDAOImpl;
-import com.solvd.farmapp.model.harvests;
-
 import java.util.List;
 
-public class HarvestsServiceImpl implements HarvestsService {
+public class HarvestsServiceImpl implements IHarvestsService {
 
-	private HarvestsDAO harvestsDAO;
+	private IHarvestsDAO harvestsDAO;
 
 	public HarvestsServiceImpl() {
 		harvestsDAO = new HarvestsDAOImpl();
@@ -26,6 +25,7 @@ public class HarvestsServiceImpl implements HarvestsService {
 
 	@Override
 	public void saveHarvest(harvests harvest) {
+
 		harvestsDAO.saveHarvest(harvest);
 	}
 

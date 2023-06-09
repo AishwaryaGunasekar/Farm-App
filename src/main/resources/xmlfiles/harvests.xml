@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<harvests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         
+  <harvest>
+    <harvest_id>1</harvest_id>
+    <field_id>10</field_id>
+    <crop_id>100</crop_id>
+    <harvest_date>2023-06-09</harvest_date>
+    <harvested_quantity>50</harvested_quantity>
+  </harvest>
+</harvests>
