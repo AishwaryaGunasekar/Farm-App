@@ -1,10 +1,26 @@
 package com.solvd.farmapp.bin;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
+
+
+@JsonRootName(value = "employees")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "employees")
 public class employees {
 
+	@JsonProperty(value = "employee_id")
 	private int employee_id;
+	@JsonProperty(value = "employee_name")
 	private String employee_name;
+	@JsonProperty(value = "employee_role")
 	private String employee_role;
+	@JsonProperty(value = "employee_salary")
 	private String employee_salary;
 
 	public employees(int employee_id, String employee_name, String employee_role, String employee_salary) {

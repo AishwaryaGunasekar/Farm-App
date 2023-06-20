@@ -2,10 +2,25 @@ package com.solvd.farmapp.bin;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
+
+@JsonRootName(value = "field_Livestock")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "field_Livestock")
 public class field_Livestock {
 
+	
+	@JsonProperty(value = "field_id")
 	private int field_id;
+	@JsonProperty(value = "livestock_id")
 	private int livestock_id;
+	
 	private Date start_date;
 	private Date end_date;
 

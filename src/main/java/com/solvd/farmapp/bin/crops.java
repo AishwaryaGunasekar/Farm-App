@@ -1,10 +1,26 @@
 package com.solvd.farmapp.bin;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
+
+
+@JsonRootName(value = "crops")
+@XmlAccessorType (XmlAccessType.FIELD)
+@XmlRootElement (name = "crops")
 public class crops {
 
+	@JsonProperty(value = "crop_id")
 	private int crop_id;
+	@JsonProperty(value = "crop_name")
 	private String crop_name;
+	@JsonProperty(value = "crop_type")
 	private String crop_type;
+	@JsonProperty(value = "crop_yield")
 	private int crop_yield;
 
 	public crops() {

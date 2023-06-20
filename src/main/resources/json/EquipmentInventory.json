@@ -1,0 +1,19 @@
+{
+  "equipment": [
+    {
+      "name": "Tractor",
+      "type": "Utility",
+      "quantity": 2
+    },
+    {
+      "name": "Harvester",
+      "type": "Combine",
+      "quantity": 1
+    },
+    {
+      "name": "Sprayer",
+      "type": "Self-Propelled",
+      "quantity": 1
+    }
+  ]
+}

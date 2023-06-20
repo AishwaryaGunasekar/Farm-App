@@ -1,0 +1,19 @@
+{
+  "crops": [
+    {
+      "name": "Tomatoes",
+      "varieties": ["Cherry", "Roma", "Beefsteak"],
+      "planting_date": "2023-04-15"
+    },
+    {
+      "name": "Lettuce",
+      "varieties": ["Romaine", "Iceberg"],
+      "planting_date": "2023-03-20"
+    },
+    {
+      "name": "Carrots",
+      "varieties": ["Nantes", "Danvers"],
+      "planting_date": "2023-04-01"
+    }
+  ]
+}

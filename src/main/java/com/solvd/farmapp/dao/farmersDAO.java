@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.*;
 
 import com.solvd.farmapp.bin.farmers;
-import com.solvd.farmapp.connections.ConnectionPool;
+import com.solvd.farmapp.util.ConnectionPool;
 
 public class farmersDAO {
 

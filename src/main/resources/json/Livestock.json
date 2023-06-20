@@ -1,0 +1,19 @@
+{
+  "livestock": [
+    {
+      "type": "Cattle",
+      "breed": "Angus",
+      "birth_date": "2022-01-10"
+    },
+    {
+      "type": "Sheep",
+      "breed": "Dorset",
+      "birth_date": "2022-03-05"
+    },
+    {
+      "type": "Poultry",
+      "breed": "Broiler",
+      "birth_date": "2022-02-20"
+    }
+  ]
+}

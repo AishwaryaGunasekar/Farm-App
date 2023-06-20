@@ -20,17 +20,17 @@ import com.solvd.farmapp.bin.crops;
 import com.solvd.farmapp.bin.harvests;
 import com.solvd.farmapp.bin.livestock;
 import com.solvd.farmapp.dao.ICropsDAO;
-import com.solvd.farmapp.dao.CropsDAOImpl;
-
+import com.solvd.farmapp.dao.Impl.CropsDAO;
 import com.solvd.farmapp.services.IHarvestsService;
-import com.solvd.farmapp.services.HarvestsServiceImpl;
 import com.solvd.farmapp.services.ILivestockService;
-import com.solvd.farmapp.services.LivestockServiceImpl;
+import com.solvd.farmapp.services.Impl.HarvestsServiceImpl;
+import com.solvd.farmapp.services.Impl.LivestockServiceImpl;
 
-public class farmapplication {
+public class FarmApplication {
+
+	public static final Logger LOGGER = LogManager.getLogger(FarmApplication.class);
 	public static void main(String[] args) {
 
-		final Logger LOGGER = LogManager.getLogger(farmapplication.class);
 
 		String dbUrl = "jdbc:mysql://localhost:3306/farm-app-db";
 		String username = "root";
@@ -39,7 +39,7 @@ public class farmapplication {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connection = DriverManager.getConnection(dbUrl, username, password);
-			ICropsDAO cropsDAO = new CropsDAOImpl(connection);
+			ICropsDAO cropsDAO = new CropsDAO(connection);
 			// Create a new crop
 			crops crop1 = new crops(8, "wheat", "Whrain", 80);
 			cropsDAO.save(crop1);
