@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.farmapp.mappers.FarmMapper">
+    <insert id="saveFarm" parameterType="com.solvd.farmapp.bin.Farm">
+        INSERT INTO Farm (Id, Name, Address) VALUES (#{Id},#{name}, #{Address})
+    </insert>
+
+    <select id="getFarmById" parameterType="int" resultType="com.solvd.Farmapp.bin.Farm">
+        SELECT * FROM airport WHERE Airport_Id = #{airportId}
+    </select>
+    
+    <update
+		id="updateFarm" parameterType="com.solvd.farmapp.bin.Farm">
+		UPDATE farms SET name = ? WHERE id = ?"
+	</update>
+	
+	<delete id="deleteCrops" parameterType="com.solvd.farmapp.bin.Farm">
+	DELETE FROM farms WHERE id = ?"
+	</delete>
+</mapper>

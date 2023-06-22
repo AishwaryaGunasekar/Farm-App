@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.farmapp.mappers.LiveStockMapper">
+	<insert id="saveLivestock" parameterType="com.solvd.Farmapp.bin.LiveStock">
+		INSERT INTO LiveStock (livestock_Id, livestock_Type, livestock_Type,
+		livestock_Quantity) VALUES (#{livestock_Id},#{livestock_Type},
+		#{livestock_Type},#{livestock_Quantity})
+	</insert>
+
+	<select id="getLiveStockById" parameterType="int"
+		resultType="com.solvd.farmapp.bin.LiveStock">
+		SELECT * FROM LiveStock WHERE livestock_Id = #{livestock_Id}
+	</select>
+
+	<update
+		id="updateLiveStock" parameterType="com.solvd.farmapp.bin.LiveStock">
+		UPDATE LiveStock SET name = ? WHERE id = ?"
+	</update>
+
+	<delete id="deleteLiveStock" parameterType="com.solvd.farmapp.bin.LiveStock">
+		DELETE FROM LiveStock WHERE id = ?"
+	</delete>
+</mapper>

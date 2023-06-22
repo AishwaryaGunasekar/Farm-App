@@ -4,21 +4,21 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.solvd.farmapp.bin.Farm;
+import java.util.*;
+import com.solvd.farmapp.bin.Farmers;
 import com.solvd.farmapp.connections.ConnectionPool;
-import com.solvd.farmapp.dao.IFarmDAO;
+import com.solvd.farmapp.dao.IFarmersDAO;
 
-public class FarmDAO implements IFarmDAO {
+public class FarmersDAO implements IFarmersDAO {
+
 	private static final Logger LOGGER = LogManager.getLogger(FarmDAO.class);
-	private static final String getById = "SELECT * FROM farms WHERE id = ?";
-	private static final String getAll = "SELECT * FROM farms";
-	private static final String INSERT = "INSERT INTO farms(id,Name,Address) VALUES (?,?,?)";
-	private static final String UPDATE = "UPDATE farms SET name = ? WHERE id = ?";
-	private static final String DELETE = "DELETE FROM farms WHERE id = ?";
+	private static final String getById = "SELECT * FROM farmers WHERE id = ?";
+	private static final String getAll = "SELECT * FROM farmers";
+	private static final String INSERT = "INSERT INTO farmers(id,Name,Address,phone) VALUES (?,?,?,?)";
+	private static final String UPDATE = "UPDATE farmers SET name = ? WHERE id = ?";
+	private static final String DELETE = "DELETE FROM farmers WHERE id = ?";
 
 	@Override
 	public void getById(int id) {
@@ -28,10 +28,11 @@ public class FarmDAO implements IFarmDAO {
 			statement.setInt(1, id);
 			ResultSet resultSet = statement.executeQuery();
 			if (resultSet.next()) {
-				Farm farm = new Farm();
-				farm.setId(resultSet.getInt("id"));
-				farm.setName(resultSet.getString("name"));
-				farm.setAddress(resultSet.getString("address"));
+				Farmers farmers = new Farmers();
+				farmers.setFarmer_Id(resultSet.getInt("farmers_id"));
+				farmers.setFarmer_Name(resultSet.getString("farmers_name"));
+				farmers.setFarmer_Address(resultSet.getString("farmers_name"));
+				farmers.setFarmer_Phone(resultSet.getInt("farmers_Phone"));
 			}
 		} catch (SQLException e) {
 			LOGGER.error("Unable to execute Prepared Statement.");
@@ -42,18 +43,18 @@ public class FarmDAO implements IFarmDAO {
 	}
 
 	@Override
-	public List<Farm> getAll() {
+	public List<Farmers> getAll() {
 		ConnectionPool connectionPool = ConnectionPool.getInstance();
 		Connection connection = connectionPool.getConnection();
-		List<Farm> farms = new ArrayList<>();
+		List<Farmers> farmers = new ArrayList<>();
 		try (PreparedStatement statement = connection.prepareStatement(getAll);
 				ResultSet resultSet = statement.executeQuery()) {
 			while (resultSet.next()) {
-				Farm farm = new Farm();
-				farm.setId(resultSet.getInt("id"));
-				farm.setName(resultSet.getString("name"));
-				farm.setAddress(resultSet.getString("address"));
-				farms.add(farm);
+				Farmers frms = new Farmers();
+				frms.setFarmer_Id(resultSet.getInt("id"));
+				frms.setFarmer_Name(resultSet.getString("name"));
+				frms.setFarmer_Address(resultSet.getString("address"));
+				frms.setFarmer_Phone(resultSet.getInt("phone"));
 			}
 		} catch (SQLException e) {
 			LOGGER.error("Unable to execute Prepared Statement.");
@@ -61,19 +62,19 @@ public class FarmDAO implements IFarmDAO {
 		} finally {
 			connectionPool.releaseConnection(connection);
 		}
-		return farms;
+		return farmers;
 	}
 
 	@Override
-	public void save(Farm farm) {
+	public void save(Farmers farmers) {
 		ConnectionPool connectionPool = ConnectionPool.getInstance();
 		Connection connection = connectionPool.getConnection();
 		try (PreparedStatement statement = connection.prepareStatement(INSERT);
 				ResultSet resultSet = statement.executeQuery()) {
 			while (resultSet.next()) {
-				statement.setInt(1, farm.getId());
-				statement.setString(2, farm.getName());
-				statement.setString(3, farm.getAddress());
+				statement.setInt(1, farmers.getFarmer_Id());
+				statement.setString(2, farmers.getFarmer_Name());
+				statement.setString(3, farmers.getFarmer_Address());
 				((PreparedStatement) resultSet).executeUpdate();
 			}
 		} catch (SQLException e) {
@@ -85,15 +86,15 @@ public class FarmDAO implements IFarmDAO {
 	}
 
 	@Override
-	public void update(Farm farm) {
+	public void update(Farmers farmers) {
 		ConnectionPool connectionPool = ConnectionPool.getInstance();
 		Connection connection = connectionPool.getConnection();
 		try (PreparedStatement statement = connection.prepareStatement(UPDATE);
 				ResultSet resultSet = statement.executeQuery()) {
 			while (resultSet.next()) {
-				statement.setInt(1, farm.getId());
-				statement.setString(2, farm.getName());
-				statement.setString(3, farm.getAddress());
+				statement.setInt(1, farmers.getFarmer_Id());
+				statement.setString(2, farmers.getFarmer_Name());
+				statement.setString(3, farmers.getFarmer_Address());
 				statement.executeUpdate();
 			}
 		} catch (SQLException e) {
@@ -105,14 +106,14 @@ public class FarmDAO implements IFarmDAO {
 	}
 
 	@Override
-	public void delete(Farm farm) {
+	public void delete(Farmers farmers) {
 		ConnectionPool connectionPool = ConnectionPool.getInstance();
 		Connection connection = connectionPool.getConnection();
 		try (PreparedStatement statement = connection.prepareStatement(DELETE);
 				ResultSet resultSet = statement.executeQuery()) {
-			statement.setInt(1, farm.getId());
-			statement.setString(2, farm.getName());
-			statement.setString(3, farm.getAddress());
+			statement.setInt(1, farmers.getFarmer_Id());
+			statement.setString(2, farmers.getFarmer_Name());
+			statement.setString(3, farmers.getFarmer_Address());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			LOGGER.error("Unable to execute Prepared Statement.");
@@ -121,4 +122,5 @@ public class FarmDAO implements IFarmDAO {
 			connectionPool.releaseConnection(connection);
 		}
 	}
+
 }

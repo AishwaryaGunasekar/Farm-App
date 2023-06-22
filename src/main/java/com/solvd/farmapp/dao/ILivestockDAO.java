@@ -1,13 +1,13 @@
 package com.solvd.farmapp.dao;
 
-import com.solvd.farmapp.bin.livestock;
+import com.solvd.farmapp.bin.LiveStock;
 
 public interface ILivestockDAO {
-	void saveLivestock(livestock livestck);
+	void saveLivestock(LiveStock livestck);
 
-	void updateLivestock(livestock livestck);
+	void updateLivestock(LiveStock livestck);
 
 	void deleteLivestock(int livestockId);
 
-	livestock getLivestockById(int livestockId);
+	LiveStock getLivestockById(int livestockId);
 }

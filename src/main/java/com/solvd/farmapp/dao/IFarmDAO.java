@@ -5,7 +5,7 @@ import java.util.List;
 import com.solvd.farmapp.bin.Farm;
 
 public interface IFarmDAO {
-    Farm getById(int id);
+    void getById(int id);
     List<Farm> getAll();
     void save(Farm farm);
     void update(Farm farm);

@@ -1,14 +1,18 @@
 package com.solvd.farmapp.services;
 
-	import java.util.List;
+import java.util.List;
 
-import com.solvd.farmapp.bin.crops;
+import com.solvd.farmapp.bin.Crops;
 
-	public interface ICropsService {
-	    crops getCropsById(int id);
-	    List<crops> getAllCrops();
-	    void saveCrops(crops crop);
-	    void updateCrops(crops crop);
-	    void deleteCrops(crops crop);
-	}
+public interface ICropsService {
+	Crops getCropsById(int id);
 
+	List<Crops> getAllCrops();
+
+	void saveCrops(Crops crop);
+
+	void updateCrops(Crops crop);
+
+	void deleteCrops(Crops crop);
+
+}

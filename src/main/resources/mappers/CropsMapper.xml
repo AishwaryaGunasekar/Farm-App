@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.farm.mappers.CropsMapper">
+
+	<insert id="saveCrops" parameterType="com.solvd.farmapp.bin.Crops">
+		INSERT INTO crops (crop_Id, Crop_Name, crop_type, crop_yield) VALUES
+	(#{cropId},#{cropName}, #{cropType},#{cropType})
+	</insert>
+	
+	<update
+		id="updateCrops" parameterType="com.solvd.farmapp.bin.Crops">
+		UPDATE crops SET crop_name = ?, crop_type = ?, crop_yield = ? WHERE
+	crop_id = ?";
+	</update>
+	
+	<delete id="deleteCrops" parameterType="com.solvd.farmapp.bin.Crops">
+	DELETE FROM crops WHERE crop_id = ?";
+	</delete>
+	<select
+		id="getCropsById" parameterType="int"
+		resultType="com.solvd.farmapp.bin.Crops">
+		SELECT * FROM crops WHERE crop_Id = #{cropId}
+	</select>
+
+</mapper>

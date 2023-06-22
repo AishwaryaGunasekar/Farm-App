@@ -2,16 +2,17 @@ package com.solvd.farmapp.dao;
 
 import java.util.List;
 
-import com.solvd.farmapp.bin.crops;
+import com.solvd.farmapp.bin.Crops;
 
 public interface ICropsDAO {
-	crops getById(int id);
+	void getById(int id);
+	
 
-	List<crops> getAll();
+	List<Crops> getAll();
 
-	void save(crops crop);
+	void save(Crops crop);
 
-	void update(crops crop);
+	void update(Crops crop);
 
-	void delete(crops crop);
+	void delete(Crops crop);
 }

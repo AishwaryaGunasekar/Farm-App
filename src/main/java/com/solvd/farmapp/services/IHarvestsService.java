@@ -2,12 +2,12 @@ package com.solvd.farmapp.services;
 
 import java.util.List;
 
-import com.solvd.farmapp.bin.harvests;
+import com.solvd.farmapp.bin.Harvests;
 
 public interface IHarvestsService {
-    harvests getHarvestById(int harvestId);
-    List<harvests> getAllHarvests();
-    void saveHarvest(harvests harvest);
-    void updateHarvest(harvests harvest);
+    Harvests getHarvestById(int harvestId);
+    List<Harvests> getAllHarvests();
+    void saveHarvest(Harvests harvest);
+    void updateHarvest(Harvests harvest);
     void deleteHarvest(int harvestId);
 }

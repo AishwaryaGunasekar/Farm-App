@@ -2,71 +2,91 @@ package com.solvd.farmapp.bin;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
+@JsonRootName(value = "sales")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "sales")
 public class Sales {
 
-	private int sale_id;
-	private int crop_id;
-	private Date sale_date;
-	private int sale_quantity;
-	private int sale_price;
+	@JsonProperty(value = "sale_id")
+	@XmlAttribute
+	private int sale_Id;
+	@JsonProperty(value = "crop_id")
+	@XmlAttribute
+	private int crop_Id;
+	private Date sale_Date;
+	@JsonProperty(value = "sale_quantity")
+	@XmlAttribute
+	private int sale_Quantity;
+	@JsonProperty(value = "sale_price")
+	@XmlAttribute
+	private int sale_Price;
 
-	public Sales(int sale_id, int crop_id, Date sale_date, int sale_quantity, int sale_price) {
+	public Sales(int sale_Id, int crop_Id, Date sale_Date, int sale_Quantity, int sale_Price) {
 		super();
-		this.sale_id = sale_id;
-		this.crop_id = crop_id;
-		this.sale_date = sale_date;
-		this.sale_quantity = sale_quantity;
-		this.sale_price = sale_price;
+		this.sale_Id = sale_Id;
+		this.crop_Id = crop_Id;
+		this.sale_Date = sale_Date;
+		this.sale_Quantity = sale_Quantity;
+		this.sale_Price = sale_Price;
 	}
 
 	public Sales() {
-		super();
+		
+		
 	}
 
-	public int getSale_id() {
-		return sale_id;
+	public int getSale_Id() {
+		return sale_Id;
 	}
 
-	public void setSale_id(int sale_id) {
-		this.sale_id = sale_id;
+	public void setSale_Id(int sale_Id) {
+		this.sale_Id = sale_Id;
 	}
 
-	public int getCrop_id() {
-		return crop_id;
+	public int getCrop_Id() {
+		return crop_Id;
 	}
 
-	public void setCrop_id(int crop_id) {
-		this.crop_id = crop_id;
+	public void setCrop_Id(int crop_Id) {
+		this.crop_Id = crop_Id;
 	}
 
-	public Date getSale_date() {
-		return sale_date;
+	public Date getSale_Date() {
+		return sale_Date;
 	}
 
-	public void setSale_date(Date sale_date) {
-		this.sale_date = sale_date;
+	public void setSale_Date(Date sale_Date) {
+		this.sale_Date = sale_Date;
 	}
 
-	public int getSale_quantity() {
-		return sale_quantity;
+	public int getSale_Quantity() {
+		return sale_Quantity;
 	}
 
-	public void setSale_quantity(int sale_quantity) {
-		this.sale_quantity = sale_quantity;
+	public void setSale_Quantity(int sale_Quantity) {
+		this.sale_Quantity = sale_Quantity;
 	}
 
-	public int getSale_price() {
-		return sale_price;
+	public int getSale_Price() {
+		return sale_Price;
 	}
 
-	public void setSale_price(int sale_price) {
-		this.sale_price = sale_price;
+	public void setSale_Price(int sale_Price) {
+		this.sale_Price = sale_Price;
 	}
 
 	@Override
 	public String toString() {
-		return "Sales [sale_id=" + sale_id + ", crop_id=" + crop_id + ", sale_date=" + sale_date + ", sale_quantity="
-				+ sale_quantity + ", sale_price=" + sale_price + "]";
+		return "Sales [sale_Id=" + sale_Id + ", crop_Id=" + crop_Id + ", sale_Date=" + sale_Date + ", sale_Quantity="
+				+ sale_Quantity + ", sale_Price=" + sale_Price + "]";
 	}
 
 }
