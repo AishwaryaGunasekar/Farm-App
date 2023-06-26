@@ -13,68 +13,67 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 @XmlRootElement(name = "crops")
 public class Crops {
 
-	@JsonProperty(value = "crop_id")
+	@JsonProperty(value = "cropid")
 	@XmlAttribute
-	private int crop_Id;
-	@JsonProperty(value = "crop_name")
+	private int cropId;
+	@JsonProperty(value = "cropname")
 	@XmlAttribute
-	private String crop_Name;
-	@JsonProperty(value = "crop_type")
+	private String cropName;
+	@JsonProperty(value = "croptype")
 	@XmlAttribute
-	private String crop_Type;
-	@JsonProperty(value = "crop_yield")
+	private String cropType;
+	@JsonProperty(value = "cropyield")
 	@XmlAttribute
-	private int crop_Yield;
+	private int cropYield;
 
-	public Crops(int crop_Id, String crop_Name, String crop_Type, int crop_Yield) {
+	public Crops(int cropId, String cropName, String cropType, int cropYield) {
 		super();
-		this.crop_Id = crop_Id;
-		this.crop_Name = crop_Name;
-		this.crop_Type = crop_Type;
-		this.crop_Yield = crop_Yield;
+		this.cropId = cropId;
+		this.cropName = cropName;
+		this.cropType = cropType;
+		this.cropYield = cropYield;
 	}
 
 	public Crops() {
-		super();
 
 	}
 
-	public int getCrop_Id() {
-		return crop_Id;
+	public int getCropId() {
+		return cropId;
 	}
 
-	public void setCrop_Id(int crop_Id) {
-		this.crop_Id = crop_Id;
+	public void setCropId(int cropId) {
+		this.cropId = cropId;
 	}
 
-	public String getCrop_Name() {
-		return crop_Name;
+	public String getCropName() {
+		return cropName;
 	}
 
-	public void setCrop_Name(String crop_Name) {
-		this.crop_Name = crop_Name;
+	public void setCropName(String cropName) {
+		this.cropName = cropName;
 	}
 
-	public String getCrop_Type() {
-		return crop_Type;
+	public String getCropType() {
+		return cropType;
 	}
 
-	public void setCrop_Type(String crop_Type) {
-		this.crop_Type = crop_Type;
+	public void setCropType(String cropType) {
+		this.cropType = cropType;
 	}
 
-	public int getCrop_Yield() {
-		return crop_Yield;
+	public int getCropYield() {
+		return cropYield;
 	}
 
-	public void setCrop_Yield(int crop_Yield) {
-		this.crop_Yield = crop_Yield;
+	public void setCropYield(int cropYield) {
+		this.cropYield = cropYield;
 	}
 
 	@Override
 	public String toString() {
-		return "Crops [crop_Id=" + crop_Id + ", crop_Name=" + crop_Name + ", crop_Type=" + crop_Type + ", crop_Yield="
-				+ crop_Yield + "]";
+		return "Crops [cropId=" + cropId + ", cropName=" + cropName + ", cropType=" + cropType + ", cropYield="
+				+ cropYield + "]";
 	}
 
 }

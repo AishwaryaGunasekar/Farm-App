@@ -8,68 +8,68 @@ import javax.xml.bind.annotation.XmlRootElement;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
-@JsonRootName(value = "field_livestock")
+@JsonRootName(value = "fieldlivestock")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "field_livestock")
+@XmlRootElement(name = "fieldlivestock")
 public class FieldLivestock {
 
-	@JsonProperty(value = "field_id")
+	@JsonProperty(value = "fieldid")
 	@XmlAttribute
-	private int field_Id;
-	@JsonProperty(value = "livestock_id")
+	private int fieldId;
+	@JsonProperty(value = "livestockid")
 	@XmlAttribute
-	private int livestock_Id;
-	private Date start_Date;
-	private Date end_Date;
+	private int livestockId;
+	private Date startDate;
+	private Date endDate;
 
-	public FieldLivestock(int field_Id, int livestock_Id, Date start_Date, Date end_Date) {
+	public FieldLivestock(int fieldId, int livestockId, Date startDate, Date endDate) {
 		super();
-		this.field_Id = field_Id;
-		this.livestock_Id = livestock_Id;
-		this.start_Date = start_Date;
-		this.end_Date = end_Date;
+		this.fieldId = fieldId;
+		this.livestockId = livestockId;
+		this.startDate = startDate;
+		this.endDate = endDate;
 	}
 
 	public FieldLivestock() {
-		super();
+
 	}
 
-	public int getField_Id() {
-		return field_Id;
+	public int getFieldId() {
+		return fieldId;
 	}
 
-	public void setField_Id(int field_Id) {
-		this.field_Id = field_Id;
+	public void setFieldId(int fieldId) {
+		this.fieldId = fieldId;
 	}
 
-	public int getLivestock_Id() {
-		return livestock_Id;
+	public int getLivestockId() {
+		return livestockId;
 	}
 
-	public void setLivestock_Id(int livestock_Id) {
-		this.livestock_Id = livestock_Id;
+	public void setLivestockId(int livestockId) {
+		this.livestockId = livestockId;
 	}
 
-	public Date getStart_Date() {
-		return start_Date;
+	public Date getStartDate() {
+		return startDate;
 	}
 
-	public void setStart_Date(Date start_Date) {
-		this.start_Date = start_Date;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
 
-	public Date getEnd_Date() {
-		return end_Date;
+	public Date getEndDate() {
+		return endDate;
 	}
 
-	public void setEnd_Date(Date end_Date) {
-		this.end_Date = end_Date;
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}
 
 	@Override
 	public String toString() {
-		return "FieldLivestock [field_Id=" + field_Id + ", livestock_Id=" + livestock_Id + ", start_Date=" + start_Date
-				+ ", end_Date=" + end_Date + "]";
+		return "FieldLivestock [fieldId=" + fieldId + ", livestockId=" + livestockId + ", startDate=" + startDate
+				+ ", endDate=" + endDate + "]";
 	}
 
 }

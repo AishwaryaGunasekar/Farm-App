@@ -15,7 +15,7 @@ import com.solvd.farmapp.services.IFarmService;
 
 public class FarmService implements IFarmService {
 
-	private final static Logger LOGGER = LogManager.getLogger(CropsService.class);
+	private final static Logger LOGGER = LogManager.getLogger(FarmService.class);
 	private static final String MYBATIS_CONFIG = "mybatis-config.xml";
 	private final static String INSERT = "com.solvd.farmapp.mappers.FarmMapper.saveCrops";
 	private final static String DELETE = "com.solvd.farmapp.mappers.FarmMapper.deleteCrops";

@@ -13,54 +13,54 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 @XmlRootElement(name = "fileds")
 public class Fileds {
 
-	@JsonProperty(value = "field_id")
+	@JsonProperty(value = "fieldid")
 	@XmlAttribute
-	private int field_Id;
-	@JsonProperty(value = "field_name")
+	private int fieldId;
+	@JsonProperty(value = "fieldname")
 	@XmlAttribute
-	private String field_Name;
-	@JsonProperty(value = "field_area")
+	private String fieldName;
+	@JsonProperty(value = "fieldarea")
 	@XmlAttribute
-	private String field_Area;
+	private String fieldArea;
 
-	public Fileds(int field_Id, String field_Name, String field_Area) {
+	public Fileds(int fieldId, String fieldName, String fieldArea) {
 		super();
-		this.field_Id = field_Id;
-		this.field_Name = field_Name;
-		this.field_Area = field_Area;
+		this.fieldId = fieldId;
+		this.fieldName = fieldName;
+		this.fieldArea = fieldArea;
 	}
 
 	public Fileds() {
-		super();
+
 	}
 
-	public int getField_Id() {
-		return field_Id;
+	public int getFieldId() {
+		return fieldId;
 	}
 
-	public void setField_Id(int field_Id) {
-		this.field_Id = field_Id;
+	public void setFieldId(int fieldId) {
+		this.fieldId = fieldId;
 	}
 
-	public String getField_Name() {
-		return field_Name;
+	public String getFieldName() {
+		return fieldName;
 	}
 
-	public void setField_Name(String field_Name) {
-		this.field_Name = field_Name;
+	public void setFieldName(String fieldName) {
+		this.fieldName = fieldName;
 	}
 
-	public String getField_Area() {
-		return field_Area;
+	public String getFieldArea() {
+		return fieldArea;
 	}
 
-	public void setField_Area(String field_Area) {
-		this.field_Area = field_Area;
+	public void setFieldArea(String fieldArea) {
+		this.fieldArea = fieldArea;
 	}
 
 	@Override
 	public String toString() {
-		return "Fileds [field_Id=" + field_Id + ", field_Name=" + field_Name + ", field_Area=" + field_Area + "]";
+		return "Fileds [fieldId=" + fieldId + ", fieldName=" + fieldName + ", fieldArea=" + fieldArea + "]";
 	}
 
 }

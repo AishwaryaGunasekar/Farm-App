@@ -10,7 +10,7 @@ import com.solvd.farmapp.dao.Impl.FarmDAO;
 import com.solvd.farmapp.services.IFarmService;
 
 public class FarmService implements IFarmService {
-	private final static Logger LOGGER = LogManager.getLogger(CropsService.class);
+	private final static Logger LOGGER = LogManager.getLogger(FarmService.class);
 	private IFarmDAO farmDAO;
 
 	public FarmService(IFarmDAO farmDAO) {

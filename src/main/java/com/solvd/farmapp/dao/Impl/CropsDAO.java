@@ -14,11 +14,11 @@ import com.solvd.farmapp.dao.ICropsDAO;
 
 public class CropsDAO implements ICropsDAO {
 	private static final Logger LOGGER = LogManager.getLogger(CropsDAO.class);
-	private static final String INSERT = "INSERT INTO crops (crop_name, crop_type, crop_yield) VALUES (?, ?, ?)";
-	private static final String UPDATE = "UPDATE crops SET crop_name = ?, crop_type = ?, crop_yield = ? WHERE crop_id = ?";
-	private static final String DELETE = "DELETE FROM crops WHERE crop_id = ?";
-	private static final String getByID = "SELECT * FROM crops WHERE crop_id = ?";
-	private static final String getAll = "SELECT * FROM crops";
+	private static final String INSERT = "INSERT INTO Crops (cropname, croptype, cropyield) VALUES (?, ?, ?)";
+	private static final String UPDATE = "UPDATE Crops SET cropname = ?, croptype = ?, cropyield = ? WHERE cropid = ?";
+	private static final String DELETE = "DELETE FROM Crops WHERE cropid = ?";
+	private static final String getByID = "SELECT * FROM Crops WHERE cropid = ?";
+	private static final String getAll = "SELECT * FROM Crops";
 
 	@Override
 	public void getById(int id) {
@@ -29,10 +29,10 @@ public class CropsDAO implements ICropsDAO {
 			ResultSet resultSet = statement.executeQuery();
 			if (resultSet.next()) {
 				Crops crop = new Crops();
-				crop.setCrop_Id(resultSet.getInt("crop_id"));
-				crop.setCrop_Name(resultSet.getString("crop_name"));
-				crop.setCrop_Type(resultSet.getString("crop_type"));
-				crop.setCrop_Yield(resultSet.getInt("crop_yield"));
+				crop.setCropId(resultSet.getInt("cropid"));
+				crop.setCropName(resultSet.getString("cropname"));
+				crop.setCropType(resultSet.getString("croptype"));
+				crop.setCropYield(resultSet.getInt("cropyield"));
 			}
 		} catch (SQLException e) {
 			LOGGER.error("Unable to execute Prepared Statement.");
@@ -40,7 +40,7 @@ public class CropsDAO implements ICropsDAO {
 		} finally {
 			connectionPool.releaseConnection(connection);
 		}
-		
+
 	}
 
 	@Override
@@ -52,13 +52,13 @@ public class CropsDAO implements ICropsDAO {
 				ResultSet resultSet = statement.executeQuery()) {
 			while (resultSet.next()) {
 				Crops crop = new Crops();
-				crop.setCrop_Id(resultSet.getInt("crop_id"));
-				crop.setCrop_Name(resultSet.getString("crop_name"));
-				crop.setCrop_Type(resultSet.getString("crop_type"));
-				crop.setCrop_Yield(resultSet.getInt("crop_yield"));
+				crop.setCropId(resultSet.getInt("cropid"));
+				crop.setCropName(resultSet.getString("cropname"));
+				crop.setCropType(resultSet.getString("croptype"));
+				crop.setCropYield(resultSet.getInt("cropyield"));
 				cropsList.add(crop);
 			}
-		}  catch (SQLException e) {
+		} catch (SQLException e) {
 			LOGGER.error("Unable to execute Prepared Statement.");
 			throw new RuntimeException(e);
 		} finally {
@@ -72,9 +72,9 @@ public class CropsDAO implements ICropsDAO {
 		ConnectionPool connectionPool = ConnectionPool.getInstance();
 		Connection connection = connectionPool.getConnection();
 		try (PreparedStatement statement = connection.prepareStatement(INSERT)) {
-			statement.setString(1, crop.getCrop_Name());
-			statement.setString(2, crop.getCrop_Type());
-			statement.setInt(3, crop.getCrop_Yield());
+			statement.setString(1, crop.getCropName());
+			statement.setString(2, crop.getCropType());
+			statement.setInt(3, crop.getCropYield());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			LOGGER.error("Unable to execute Prepared Statement.");
@@ -90,10 +90,10 @@ public class CropsDAO implements ICropsDAO {
 		ConnectionPool connectionPool = ConnectionPool.getInstance();
 		Connection connection = connectionPool.getConnection();
 		try (PreparedStatement statement = connection.prepareStatement(UPDATE)) {
-			statement.setString(1, crop.getCrop_Name());
-			statement.setString(2, crop.getCrop_Type());
-			statement.setInt(3, crop.getCrop_Yield());
-			statement.setInt(4, crop.getCrop_Id());
+			statement.setString(1, crop.getCropName());
+			statement.setString(2, crop.getCropType());
+			statement.setInt(3, crop.getCropYield());
+			statement.setInt(4, crop.getCropId());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			LOGGER.error("Unable to execute Prepared Statement");
@@ -109,7 +109,7 @@ public class CropsDAO implements ICropsDAO {
 		ConnectionPool connectionPool = ConnectionPool.getInstance();
 		Connection connection = connectionPool.getConnection();
 		try (PreparedStatement statement = connection.prepareStatement(DELETE)) {
-			statement.setInt(1, crop.getCrop_Id());
+			statement.setInt(1, crop.getCropId());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			LOGGER.error("Unable to execute Prepared Statement");

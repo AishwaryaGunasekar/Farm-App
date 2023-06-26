@@ -15,78 +15,77 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 @XmlRootElement(name = "expenses")
 public class Expenses {
 
-	@JsonProperty(value = "expense_id")
+	@JsonProperty(value = "expenseid")
 	@XmlAttribute
-	private int expense_Id;
-	@JsonProperty(value = "field_id")
+	private int expenseId;
+	@JsonProperty(value = "fieldid")
 	@XmlAttribute
-	private int field_Id;
-	private Date expense_Date;
-	@JsonProperty(value = "expense_type")
+	private int fieldId;
+	private Date expenseDate;
+	@JsonProperty(value = "expensetype")
 	@XmlAttribute
-	private Date expense_Type;
-	@JsonProperty(value = "expense_amount")
+	private Date expenseType;
+	@JsonProperty(value = "expenseamount")
 	@XmlAttribute
-	private int expense_Amount;
+	private int expenseAmount;
 
-	public Expenses(int expense_Id, int field_Id, Date expense_Date, Date expense_Type, int expense_Amount) {
+	public Expenses(int expenseId, int fieldId, Date expenseDate, Date expenseType, int expenseAmount) {
 		super();
-		this.expense_Id = expense_Id;
-		this.field_Id = field_Id;
-		this.expense_Date = expense_Date;
-		this.expense_Type = expense_Type;
-		this.expense_Amount = expense_Amount;
+		this.expenseId = expenseId;
+		this.fieldId = fieldId;
+		this.expenseDate = expenseDate;
+		this.expenseType = expenseType;
+		this.expenseAmount = expenseAmount;
 	}
 
 	public Expenses() {
-		super();
+
 	}
 
-	public int getExpense_Id() {
-		return expense_Id;
+	public int getExpenseId() {
+		return expenseId;
 	}
 
-	public void setExpense_Id(int expense_Id) {
-		this.expense_Id = expense_Id;
+	public void setExpenseId(int expenseId) {
+		this.expenseId = expenseId;
 	}
 
-	public int getField_Id() {
-		return field_Id;
+	public int getFieldId() {
+		return fieldId;
 	}
 
-	public void setField_Id(int field_Id) {
-		this.field_Id = field_Id;
+	public void setFieldId(int fieldId) {
+		this.fieldId = fieldId;
 	}
 
-	public Date getExpense_Date() {
-		return expense_Date;
+	public Date getExpenseDate() {
+		return expenseDate;
 	}
 
-	public void setExpense_Date(Date expense_Date) {
-		this.expense_Date = expense_Date;
+	public void setExpenseDate(Date expenseDate) {
+		this.expenseDate = expenseDate;
 	}
 
-	public Date getExpense_Type() {
-		return expense_Type;
+	public Date getExpenseType() {
+		return expenseType;
 	}
 
-	public void setExpense_Type(Date expense_Type) {
-		this.expense_Type = expense_Type;
+	public void setExpenseType(Date expenseType) {
+		this.expenseType = expenseType;
 	}
 
-	public int getExpense_Amount() {
-		return expense_Amount;
+	public int getExpenseAmount() {
+		return expenseAmount;
 	}
 
-	public void setExpense_Amount(int expense_Amount) {
-		this.expense_Amount = expense_Amount;
+	public void setExpenseAmount(int expenseAmount) {
+		this.expenseAmount = expenseAmount;
 	}
 
 	@Override
 	public String toString() {
-		return "Expenses [expense_Id=" + expense_Id + ", field_Id=" + field_Id + ", expense_Date=" + expense_Date
-				+ ", expense_Type=" + expense_Type + ", expense_Amount=" + expense_Amount + "]";
+		return "Expenses [expenseId=" + expenseId + ", fieldId=" + fieldId + ", expenseDate=" + expenseDate
+				+ ", expenseType=" + expenseType + ", expenseAmount=" + expenseAmount + "]";
 	}
 
-	
 }

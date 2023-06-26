@@ -8,65 +8,68 @@ import javax.xml.bind.annotation.XmlRootElement;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
-@JsonRootName(value = "employee_fields")
+@JsonRootName(value = "employeefields")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "employee_fields")
+@XmlRootElement(name = "employeefields")
 public class EmployeeFields {
 
-	@JsonProperty(value = "employee_id")
+	@JsonProperty(value = "employeeid")
 	@XmlAttribute
-	private int employee_Id;
-	@JsonProperty(value = "field_id")
+	private int employeeId;
+	@JsonProperty(value = "fieldid")
 	@XmlAttribute
-	private int field_Id;
-	private String start_Date;
-	private String end_Date;
+	private int fieldId;
+	private String startDate;
+	private String endDate;
 
-	public EmployeeFields(int employee_Id, int field_Id, String start_Date, String end_Date) {
+	public EmployeeFields(int employeeId, int fieldId, String startDate, String endDate) {
 		super();
-		this.employee_Id = employee_Id;
-		this.field_Id = field_Id;
-		this.start_Date = start_Date;
-		this.end_Date = end_Date;
+		this.employeeId = employeeId;
+		this.fieldId = fieldId;
+		this.startDate = startDate;
+		this.endDate = endDate;
 	}
 
-	public int getEmployee_Id() {
-		return employee_Id;
+	public EmployeeFields() {
+
 	}
 
-	public void setEmployee_Id(int employee_Id) {
-		this.employee_Id = employee_Id;
+	public int getEmployeeId() {
+		return employeeId;
 	}
 
-	public int getField_Id() {
-		return field_Id;
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
 	}
 
-	public void setField_Id(int field_Id) {
-		this.field_Id = field_Id;
+	public int getFieldId() {
+		return fieldId;
 	}
 
-	public String getStart_Date() {
-		return start_Date;
+	public void setFieldId(int fieldId) {
+		this.fieldId = fieldId;
 	}
 
-	public void setStart_Date(String start_Date) {
-		this.start_Date = start_Date;
+	public String getStartDate() {
+		return startDate;
 	}
 
-	public String getEnd_Date() {
-		return end_Date;
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
 	}
 
-	public void setEnd_Date(String end_Date) {
-		this.end_Date = end_Date;
+	public String getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
 	}
 
 	@Override
 	public String toString() {
-		return "EmployeeFields [employee_Id=" + employee_Id + ", field_Id=" + field_Id + ", start_Date=" + start_Date
-				+ ", end_Date=" + end_Date + "]";
+		return "EmployeeFields [employeeId=" + employeeId + ", fieldId=" + fieldId + ", startDate=" + startDate
+				+ ", endDate=" + endDate + "]";
 	}
 
-	
 }

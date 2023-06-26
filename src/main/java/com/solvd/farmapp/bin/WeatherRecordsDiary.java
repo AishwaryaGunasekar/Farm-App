@@ -15,15 +15,15 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 @XmlRootElement(name = "WeatherRecordsDiary")
 public class WeatherRecordsDiary {
 
-	@JsonProperty(value = "weather_id")
+	@JsonProperty(value = "weatherid")
 	@XmlAttribute
-	private int weather_Id;
+	private int weatherId;
 
-	@JsonProperty(value = "field_id")
+	@JsonProperty(value = "fieldid")
 	@XmlAttribute
-	private int field_Id;
+	private int fieldId;
 
-	private Date weather_Date;
+	private Date weatherDate;
 
 	@JsonProperty(value = "temperature")
 	@XmlAttribute
@@ -33,37 +33,41 @@ public class WeatherRecordsDiary {
 	@XmlAttribute
 	private String rainfall;
 
-	public WeatherRecordsDiary(int weather_Id, int field_Id, Date weather_Date, int temperature, String rainfall) {
+	public WeatherRecordsDiary(int weatherId, int fieldId, Date weatherDate, int temperature, String rainfall) {
 		super();
-		this.weather_Id = weather_Id;
-		this.field_Id = field_Id;
-		this.weather_Date = weather_Date;
+		this.weatherId = weatherId;
+		this.fieldId = fieldId;
+		this.weatherDate = weatherDate;
 		this.temperature = temperature;
 		this.rainfall = rainfall;
 	}
 
-	public int getWeather_Id() {
-		return weather_Id;
+	public WeatherRecordsDiary() {
+
 	}
 
-	public void setWeather_Id(int weather_Id) {
-		this.weather_Id = weather_Id;
+	public int getWeatherId() {
+		return weatherId;
 	}
 
-	public int getField_Id() {
-		return field_Id;
+	public void setWeatherId(int weatherId) {
+		this.weatherId = weatherId;
 	}
 
-	public void setField_Id(int field_Id) {
-		this.field_Id = field_Id;
+	public int getFieldId() {
+		return fieldId;
 	}
 
-	public Date getWeather_Date() {
-		return weather_Date;
+	public void setFieldId(int fieldId) {
+		this.fieldId = fieldId;
 	}
 
-	public void setWeather_Date(Date weather_Date) {
-		this.weather_Date = weather_Date;
+	public Date getWeatherDate() {
+		return weatherDate;
+	}
+
+	public void setWeatherDate(Date weatherDate) {
+		this.weatherDate = weatherDate;
 	}
 
 	public int getTemperature() {
@@ -84,8 +88,8 @@ public class WeatherRecordsDiary {
 
 	@Override
 	public String toString() {
-		return "WeatherRecordsDiary [weather_Id=" + weather_Id + ", field_Id=" + field_Id + ", weather_Date="
-				+ weather_Date + ", temperature=" + temperature + ", rainfall=" + rainfall + "]";
+		return "WeatherRecordsDiary [weatherId=" + weatherId + ", fieldId=" + fieldId + ", weatherDate=" + weatherDate
+				+ ", temperature=" + temperature + ", rainfall=" + rainfall + "]";
 	}
 
 }

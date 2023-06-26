@@ -9,29 +9,21 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.solvd.farmapp.bin.LiveStock;
-import com.solvd.farmapp.dao.ILivestockDAO;
+
 import com.solvd.farmapp.services.ILivestockService;
 
 public class LiveStockService implements ILivestockService {
 
-	private final static Logger LOGGER = LogManager.getLogger(CropsService.class);
+	private final static Logger LOGGER = LogManager.getLogger(LiveStockService.class);
 	private static final String MYBATIS_CONFIG = "mybatis-config.xml";
 	private final static String INSERT = "com.solvd.farmapp.mappers.LiveStockMapper.saveLivestock";
 	private final static String DELETE = "com.solvd.farmapp.mappers.LiveStockMapper.deleteLivestock";
 	private final static String UPDATE = "com.solvd.farmapp.mappers.LiveStockMapper.updateLivestock";
 
-	private ILivestockDAO livestockDAO;
-
-	public LiveStockService(ILivestockDAO livestockDAO) {
-		this.livestockDAO = livestockDAO;
-	}
-	
-
 	public LiveStockService() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
 
 	@Override
 	public void saveLivestock(LiveStock lvkstock) {
@@ -105,8 +97,8 @@ public class LiveStockService implements ILivestockService {
 				throw new RuntimeException(e);
 			}
 		} else {
-			LOGGER.error("Invalid crop ID was entered.");
-			throw new IllegalArgumentException("crop ID must be greater than or equal to 1");
+			LOGGER.error("Invalid livestockid ID was entered.");
+			throw new IllegalArgumentException("livestockid ID must be greater than or equal to 1");
 		}
 	}
 

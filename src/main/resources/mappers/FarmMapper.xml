@@ -4,19 +4,19 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.solvd.farmapp.mappers.FarmMapper">
     <insert id="saveFarm" parameterType="com.solvd.farmapp.bin.Farm">
-        INSERT INTO Farm (Id, Name, Address) VALUES (#{Id},#{name}, #{Address})
+        INSERT INTO Farm (id, name, address) VALUES (#{id},#{name}, #{address})
     </insert>
 
     <select id="getFarmById" parameterType="int" resultType="com.solvd.Farmapp.bin.Farm">
-        SELECT * FROM airport WHERE Airport_Id = #{airportId}
+        SELECT * FROM Farm WHERE id = #{id}
     </select>
     
     <update
 		id="updateFarm" parameterType="com.solvd.farmapp.bin.Farm">
-		UPDATE farms SET name = ? WHERE id = ?"
+		UPDATE Farm SET name = ? WHERE id = ?"
 	</update>
 	
 	<delete id="deleteCrops" parameterType="com.solvd.farmapp.bin.Farm">
-	DELETE FROM farms WHERE id = ?"
+	DELETE FROM Farm WHERE id = ?"
 	</delete>
 </mapper>

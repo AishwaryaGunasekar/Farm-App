@@ -10,68 +10,68 @@ import javax.xml.bind.annotation.XmlRootElement;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
-@JsonRootName(value = "field_Crops")
+@JsonRootName(value = "fieldCrops")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "field_Crops")
+@XmlRootElement(name = "fieldCrops")
 public class FieldCrops {
 
-	@JsonProperty(value = "field_Id")
+	@JsonProperty(value = "fieldId")
 	@XmlAttribute
-	private int field_Id;
-	@JsonProperty(value = "crop_Id")
+	private int fieldId;
+	@JsonProperty(value = "cropId")
 	@XmlAttribute
-	private int crop_Id;
-	private Date planting_Date;
-	private Date harvest_Date;
+	private int cropId;
+	private Date plantingDate;
+	private Date harvestDate;
+
+	public FieldCrops(int fieldId, int cropId, Date plantingDate, Date harvestDate) {
+		super();
+		this.fieldId = fieldId;
+		this.cropId = cropId;
+		this.plantingDate = plantingDate;
+		this.harvestDate = harvestDate;
+	}
 
 	public FieldCrops() {
 		super();
 	}
 
-	public FieldCrops(int field_Id, int crop_Id, Date planting_Date, Date harvest_Date) {
-		super();
-		this.field_Id = field_Id;
-		this.crop_Id = crop_Id;
-		this.planting_Date = planting_Date;
-		this.harvest_Date = harvest_Date;
+	public int getFieldId() {
+		return fieldId;
 	}
 
-	public int getField_Id() {
-		return field_Id;
+	public void setFieldId(int fieldId) {
+		this.fieldId = fieldId;
 	}
 
-	public void setField_Id(int field_Id) {
-		this.field_Id = field_Id;
+	public int getCropId() {
+		return cropId;
 	}
 
-	public int getCrop_Id() {
-		return crop_Id;
+	public void setCropId(int cropId) {
+		this.cropId = cropId;
 	}
 
-	public void setCrop_Id(int crop_Id) {
-		this.crop_Id = crop_Id;
+	public Date getPlantingDate() {
+		return plantingDate;
 	}
 
-	public Date getPlanting_Date() {
-		return planting_Date;
+	public void setPlantingDate(Date plantingDate) {
+		this.plantingDate = plantingDate;
 	}
 
-	public void setPlanting_Date(Date planting_Date) {
-		this.planting_Date = planting_Date;
+	public Date getHarvestDate() {
+		return harvestDate;
 	}
 
-	public Date getHarvest_Date() {
-		return harvest_Date;
-	}
-
-	public void setHarvest_Date(Date harvest_Date) {
-		this.harvest_Date = harvest_Date;
+	public void setHarvestDate(Date harvestDate) {
+		this.harvestDate = harvestDate;
 	}
 
 	@Override
 	public String toString() {
-		return "FieldCrops [field_Id=" + field_Id + ", crop_Id=" + crop_Id + ", planting_Date=" + planting_Date
-				+ ", harvest_Date=" + harvest_Date + "]";
+		return "FieldCrops [fieldId=" + fieldId + ", cropId=" + cropId + ", plantingDate=" + plantingDate
+				+ ", harvestDate=" + harvestDate + "]";
 	}
 
 }

@@ -13,67 +13,67 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 @XmlRootElement(name = "farmers")
 public class Farmers {
 
-	@JsonProperty(value = "farmer_id")
+	@JsonProperty(value = "farmerid")
 	@XmlAttribute
-	private int farmer_Id;
-	@JsonProperty(value = "farmer_name")
+	private int farmerId;
+	@JsonProperty(value = "farmername")
 	@XmlAttribute
-	private String farmer_Name;
-	@JsonProperty(value = "farmer_address")
+	private String farmerName;
+	@JsonProperty(value = "farmeraddress")
 	@XmlAttribute
-	private String farmer_Address;
-	@JsonProperty(value = "farmer_phone")
+	private String farmerAddress;
+	@JsonProperty(value = "farmerphone")
 	@XmlAttribute
-	private int farmer_Phone;
+	private int farmerPhone;
+
+	public Farmers(int farmerId, String farmerName, String farmerAddress, int farmerPhone) {
+		super();
+		this.farmerId = farmerId;
+		this.farmerName = farmerName;
+		this.farmerAddress = farmerAddress;
+		this.farmerPhone = farmerPhone;
+	}
 
 	public Farmers() {
 		super();
 	}
 
-	public Farmers(int farmer_Id, String farmer_Name, String farmer_Address, int farmer_Phone) {
-		super();
-		this.farmer_Id = farmer_Id;
-		this.farmer_Name = farmer_Name;
-		this.farmer_Address = farmer_Address;
-		this.farmer_Phone = farmer_Phone;
+	public int getFarmerId() {
+		return farmerId;
 	}
 
-	public int getFarmer_Id() {
-		return farmer_Id;
+	public void setFarmerId(int farmerId) {
+		this.farmerId = farmerId;
 	}
 
-	public void setFarmer_Id(int farmer_Id) {
-		this.farmer_Id = farmer_Id;
+	public String getFarmerName() {
+		return farmerName;
 	}
 
-	public String getFarmer_Name() {
-		return farmer_Name;
+	public void setFarmerName(String farmerName) {
+		this.farmerName = farmerName;
 	}
 
-	public void setFarmer_Name(String farmer_Name) {
-		this.farmer_Name = farmer_Name;
+	public String getFarmerAddress() {
+		return farmerAddress;
 	}
 
-	public String getFarmer_Address() {
-		return farmer_Address;
+	public void setFarmerAddress(String farmerAddress) {
+		this.farmerAddress = farmerAddress;
 	}
 
-	public void setFarmer_Address(String farmer_Address) {
-		this.farmer_Address = farmer_Address;
+	public int getFarmerPhone() {
+		return farmerPhone;
 	}
 
-	public int getFarmer_Phone() {
-		return farmer_Phone;
-	}
-
-	public void setFarmer_Phone(int farmer_Phone) {
-		this.farmer_Phone = farmer_Phone;
+	public void setFarmerPhone(int farmerPhone) {
+		this.farmerPhone = farmerPhone;
 	}
 
 	@Override
 	public String toString() {
-		return "Farmers [farmer_Id=" + farmer_Id + ", farmer_Name=" + farmer_Name + ", farmer_Address=" + farmer_Address
-				+ ", farmer_Phone=" + farmer_Phone + "]";
+		return "Farmers [farmerId=" + farmerId + ", farmerName=" + farmerName + ", farmerAddress=" + farmerAddress
+				+ ", farmerPhone=" + farmerPhone + "]";
 	}
 
 }

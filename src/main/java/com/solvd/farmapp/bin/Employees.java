@@ -13,67 +13,67 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 @XmlRootElement(name = "employees")
 public class Employees {
 
-	@JsonProperty(value = "employee_id")
+	@JsonProperty(value = "employeeid")
 	@XmlAttribute
-	private int employee_Id;
-	@JsonProperty(value = "employee_name")
+	private int employeeId;
+	@JsonProperty(value = "employeename")
 	@XmlAttribute
-	private String employee_Name;
-	@JsonProperty(value = "employee_role")
+	private String employeeName;
+	@JsonProperty(value = "employeerole")
 	@XmlAttribute
-	private String employee_Role;
-	@JsonProperty(value = "employee_salary")
+	private String employeeRole;
+	@JsonProperty(value = "employeesalary")
 	@XmlAttribute
-	private String employee_Salary;
+	private String employeeSalary;
 
-	public Employees(int employee_Id, String employee_Name, String employee_Role, String employee_Salary) {
+	public Employees(int employeeId, String employeeName, String employeeRole, String employeeSalary) {
 		super();
-		this.employee_Id = employee_Id;
-		this.employee_Name = employee_Name;
-		this.employee_Role = employee_Role;
-		this.employee_Salary = employee_Salary;
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
+		this.employeeRole = employeeRole;
+		this.employeeSalary = employeeSalary;
 	}
 
 	public Employees() {
-		super();
+
 	}
 
-	public int getEmployee_Id() {
-		return employee_Id;
+	public int getEmployeeId() {
+		return employeeId;
 	}
 
-	public void setEmployee_Id(int employee_Id) {
-		this.employee_Id = employee_Id;
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
 	}
 
-	public String getEmployee_Name() {
-		return employee_Name;
+	public String getEmployeeName() {
+		return employeeName;
 	}
 
-	public void setEmployee_Name(String employee_Name) {
-		this.employee_Name = employee_Name;
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
 	}
 
-	public String getEmployee_Role() {
-		return employee_Role;
+	public String getEmployeeRole() {
+		return employeeRole;
 	}
 
-	public void setEmployee_Role(String employee_Role) {
-		this.employee_Role = employee_Role;
+	public void setEmployeeRole(String employeeRole) {
+		this.employeeRole = employeeRole;
 	}
 
-	public String getEmployee_Salary() {
-		return employee_Salary;
+	public String getEmployeeSalary() {
+		return employeeSalary;
 	}
 
-	public void setEmployee_Salary(String employee_Salary) {
-		this.employee_Salary = employee_Salary;
+	public void setEmployeeSalary(String employeeSalary) {
+		this.employeeSalary = employeeSalary;
 	}
 
 	@Override
 	public String toString() {
-		return "Employees [employee_Id=" + employee_Id + ", employee_Name=" + employee_Name + ", employee_Role="
-				+ employee_Role + ", employee_Salary=" + employee_Salary + "]";
+		return "Employees [employeeId=" + employeeId + ", employeeName=" + employeeName + ", employeeRole="
+				+ employeeRole + ", employeeSalary=" + employeeSalary + "]";
 	}
 
 }

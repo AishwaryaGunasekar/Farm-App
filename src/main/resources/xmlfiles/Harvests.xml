@@ -2,10 +2,10 @@
 <harvests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
          
   <harvest>
-    <harvest_id>1</harvest_id>
-    <field_id>10</field_id>
-    <crop_id>100</crop_id>
-    <harvest_date>2023-06-09</harvest_date>
-    <harvested_quantity>50</harvested_quantity>
+    <harvestid>1</harvestid>
+    <fieldid>10</fieldid>
+    <cropid>100</cropid>
+    <harvestdate>2023-06-09</harvestdate>
+    <harvestedquantity>50</harvestedquantity>
   </harvest>
 </harvests>

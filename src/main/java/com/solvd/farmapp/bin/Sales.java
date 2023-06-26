@@ -15,78 +15,77 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 @XmlRootElement(name = "sales")
 public class Sales {
 
-	@JsonProperty(value = "sale_id")
+	@JsonProperty(value = "saleid")
 	@XmlAttribute
-	private int sale_Id;
-	@JsonProperty(value = "crop_id")
+	private int saleId;
+	@JsonProperty(value = "cropid")
 	@XmlAttribute
-	private int crop_Id;
-	private Date sale_Date;
-	@JsonProperty(value = "sale_quantity")
+	private int cropId;
+	private Date saleDate;
+	@JsonProperty(value = "salequantity")
 	@XmlAttribute
-	private int sale_Quantity;
-	@JsonProperty(value = "sale_price")
+	private int saleQuantity;
+	@JsonProperty(value = "saleprice")
 	@XmlAttribute
-	private int sale_Price;
+	private int salePrice;
 
-	public Sales(int sale_Id, int crop_Id, Date sale_Date, int sale_Quantity, int sale_Price) {
+	public Sales(int saleId, int cropId, Date saleDate, int saleQuantity, int salePrice) {
 		super();
-		this.sale_Id = sale_Id;
-		this.crop_Id = crop_Id;
-		this.sale_Date = sale_Date;
-		this.sale_Quantity = sale_Quantity;
-		this.sale_Price = sale_Price;
+		this.saleId = saleId;
+		this.cropId = cropId;
+		this.saleDate = saleDate;
+		this.saleQuantity = saleQuantity;
+		this.salePrice = salePrice;
 	}
 
 	public Sales() {
-		
-		
+
 	}
 
-	public int getSale_Id() {
-		return sale_Id;
+	public int getSaleId() {
+		return saleId;
 	}
 
-	public void setSale_Id(int sale_Id) {
-		this.sale_Id = sale_Id;
+	public void setSaleId(int saleId) {
+		this.saleId = saleId;
 	}
 
-	public int getCrop_Id() {
-		return crop_Id;
+	public int getCropId() {
+		return cropId;
 	}
 
-	public void setCrop_Id(int crop_Id) {
-		this.crop_Id = crop_Id;
+	public void setCropId(int cropId) {
+		this.cropId = cropId;
 	}
 
-	public Date getSale_Date() {
-		return sale_Date;
+	public Date getSaleDate() {
+		return saleDate;
 	}
 
-	public void setSale_Date(Date sale_Date) {
-		this.sale_Date = sale_Date;
+	public void setSaleDate(Date saleDate) {
+		this.saleDate = saleDate;
 	}
 
-	public int getSale_Quantity() {
-		return sale_Quantity;
+	public int getSaleQuantity() {
+		return saleQuantity;
 	}
 
-	public void setSale_Quantity(int sale_Quantity) {
-		this.sale_Quantity = sale_Quantity;
+	public void setSaleQuantity(int saleQuantity) {
+		this.saleQuantity = saleQuantity;
 	}
 
-	public int getSale_Price() {
-		return sale_Price;
+	public int getSalePrice() {
+		return salePrice;
 	}
 
-	public void setSale_Price(int sale_Price) {
-		this.sale_Price = sale_Price;
+	public void setSalePrice(int salePrice) {
+		this.salePrice = salePrice;
 	}
 
 	@Override
 	public String toString() {
-		return "Sales [sale_Id=" + sale_Id + ", crop_Id=" + crop_Id + ", sale_Date=" + sale_Date + ", sale_Quantity="
-				+ sale_Quantity + ", sale_Price=" + sale_Price + "]";
+		return "Sales [saleId=" + saleId + ", cropId=" + cropId + ", saleDate=" + saleDate + ", saleQuantity="
+				+ saleQuantity + ", salePrice=" + salePrice + "]";
 	}
 
 }

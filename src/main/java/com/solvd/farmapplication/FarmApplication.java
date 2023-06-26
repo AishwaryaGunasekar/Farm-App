@@ -25,7 +25,6 @@ public class FarmApplication {
 
 	public static final Logger LOGGER = LogManager.getLogger(FarmApplication.class);
 
-	
 	public static void main(String[] args) {
 
 		CropsService cropservice = new CropsService();
@@ -78,7 +77,7 @@ public class FarmApplication {
 		LOGGER.info("Retrieved harvest: " + retrievedHarvest);
 
 		// Update the harvested quantity
-		retrievedHarvest.setHarvested_Quantity(200);
+		retrievedHarvest.setHarvestedQuantity(200);
 		harvestsService.updateHarvest(retrievedHarvest);
 		LOGGER.info("Harvest updated: " + retrievedHarvest);
 
@@ -104,11 +103,11 @@ public class FarmApplication {
 		livestockService.saveLivestock(livestck);
 
 		// Update the livestock
-		livestck.setLivestock_Quantity("20");
+		livestck.setLivestockQuantity("20");
 		livestockService.updateLivestock(livestck);
 
 		// Delete the livestock
-		livestockService.deleteLivestock(livestck.getLivestock_Id());
+		livestockService.deleteLivestock(livestck.getLivestockId());
 
 		// Retrieve a livestock by ID
 		int livestockId = 1;
@@ -116,26 +115,23 @@ public class FarmApplication {
 		LOGGER.info("Retrieved livestock: " + retrievedLivestock);
 
 		// JAXB marshalling
-		@SuppressWarnings("rawtypes")
-		JAXBService jaxbservice = new JAXBService();
+		JAXBService<LiveStock> jaxbservice = new JAXBService<LiveStock>();
 		jaxbservice.getClass();
 		Farm farmq = new Farm();
 		farmq.getId();
 		String farmXmlFile = "src/main/resources/Farm.xml";
 		jaxbservice.marshal(retrievedLivestock, farmXmlFile, farmXmlFile);
-		
 
 		// JAXB unmarshalling
 		String farmerstXmlFile = "src/main/resources/xml/Farmers.xml";
 		Farmers farmers = jaxbservice.unmarshall(farmerstXmlFile);
-		LOGGER.info("Farmers details: " + farmers.getFarmer_Id() + ", " + farmers.getFarmer_Name() + ", "
-				+ farmers.getFarmer_Address() + ", " + farmers.getFarmer_Phone());
+		LOGGER.info("Farmers details: " + farmers.getFarmerId() + ", " + farmers.getFarmerName() + ", "
+				+ farmers.getFarmerAddress() + ", " + farmers.getFarmerPhone());
 
 		// JACKSON Serialize
-		@SuppressWarnings("rawtypes")
-		JacksonService jcksonservice = new JacksonService();
+		JacksonService<Object> jcksonservice = new JacksonService<Object>();
 		LiveStock livestoock = new LiveStock();
-		livestoock.setLivestock_Id(livestockId);
+		livestoock.setLivestockId(livestockId);
 		String file = "src/main/resources/json/Livestock.json";
 		jcksonservice.serialize(livestock, file);
 
@@ -145,7 +141,7 @@ public class FarmApplication {
 		LOGGER.info("Serialization completed successfully.");
 
 		// JACKSON Deserialize
-		jcksonservice = new JacksonService();
+		jcksonservice = new JacksonService<Object>();
 		String JsonFile = "src/main/resources/json/Crop.json";
 		String JsonFile1 = "src/main/resources/json/Farm.json";
 		Crops crop2 = JacksonService.deserialize(JsonFile);

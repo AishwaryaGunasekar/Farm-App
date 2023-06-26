@@ -14,11 +14,11 @@ import com.solvd.farmapp.dao.IFarmDAO;
 
 public class FarmDAO implements IFarmDAO {
 	private static final Logger LOGGER = LogManager.getLogger(FarmDAO.class);
-	private static final String getById = "SELECT * FROM farms WHERE id = ?";
-	private static final String getAll = "SELECT * FROM farms";
-	private static final String INSERT = "INSERT INTO farms(id,Name,Address) VALUES (?,?,?)";
-	private static final String UPDATE = "UPDATE farms SET name = ? WHERE id = ?";
-	private static final String DELETE = "DELETE FROM farms WHERE id = ?";
+	private static final String getById = "SELECT * FROM Farm WHERE id = ?";
+	private static final String getAll = "SELECT * FROM Farm";
+	private static final String INSERT = "INSERT INTO Farm(id,name,address) VALUES (?,?,?)";
+	private static final String UPDATE = "UPDATE Farm SET name = ? WHERE id = ?";
+	private static final String DELETE = "DELETE FROM Farm WHERE id = ?";
 
 	@Override
 	public void getById(int id) {

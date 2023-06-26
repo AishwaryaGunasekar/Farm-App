@@ -14,11 +14,11 @@ import com.solvd.farmapp.dao.IFarmersDAO;
 public class FarmersDAO implements IFarmersDAO {
 
 	private static final Logger LOGGER = LogManager.getLogger(FarmDAO.class);
-	private static final String getById = "SELECT * FROM farmers WHERE id = ?";
-	private static final String getAll = "SELECT * FROM farmers";
-	private static final String INSERT = "INSERT INTO farmers(id,Name,Address,phone) VALUES (?,?,?,?)";
-	private static final String UPDATE = "UPDATE farmers SET name = ? WHERE id = ?";
-	private static final String DELETE = "DELETE FROM farmers WHERE id = ?";
+	private static final String getById = "SELECT * FROM Farmers WHERE id = ?";
+	private static final String getAll = "SELECT * FROM Farmers";
+	private static final String INSERT = "INSERT INTO Farmers(id,name,address,phone) VALUES (?,?,?,?)";
+	private static final String UPDATE = "UPDATE Farmers SET name = ? WHERE id = ?";
+	private static final String DELETE = "DELETE FROM Farmers WHERE id = ?";
 
 	@Override
 	public void getById(int id) {
@@ -29,10 +29,10 @@ public class FarmersDAO implements IFarmersDAO {
 			ResultSet resultSet = statement.executeQuery();
 			if (resultSet.next()) {
 				Farmers farmers = new Farmers();
-				farmers.setFarmer_Id(resultSet.getInt("farmers_id"));
-				farmers.setFarmer_Name(resultSet.getString("farmers_name"));
-				farmers.setFarmer_Address(resultSet.getString("farmers_name"));
-				farmers.setFarmer_Phone(resultSet.getInt("farmers_Phone"));
+				farmers.setFarmerId(resultSet.getInt("farmersid"));
+				farmers.setFarmerName(resultSet.getString("farmersname"));
+				farmers.setFarmerAddress(resultSet.getString("farmersaddress"));
+				farmers.setFarmerPhone(resultSet.getInt("farmersPhone"));
 			}
 		} catch (SQLException e) {
 			LOGGER.error("Unable to execute Prepared Statement.");
@@ -51,10 +51,10 @@ public class FarmersDAO implements IFarmersDAO {
 				ResultSet resultSet = statement.executeQuery()) {
 			while (resultSet.next()) {
 				Farmers frms = new Farmers();
-				frms.setFarmer_Id(resultSet.getInt("id"));
-				frms.setFarmer_Name(resultSet.getString("name"));
-				frms.setFarmer_Address(resultSet.getString("address"));
-				frms.setFarmer_Phone(resultSet.getInt("phone"));
+				frms.setFarmerId(resultSet.getInt("farmersid"));
+				frms.setFarmerName(resultSet.getString("farmersname"));
+				frms.setFarmerAddress(resultSet.getString("farmersaddress"));
+				frms.setFarmerPhone(resultSet.getInt("farmersPhone"));
 			}
 		} catch (SQLException e) {
 			LOGGER.error("Unable to execute Prepared Statement.");
@@ -72,9 +72,9 @@ public class FarmersDAO implements IFarmersDAO {
 		try (PreparedStatement statement = connection.prepareStatement(INSERT);
 				ResultSet resultSet = statement.executeQuery()) {
 			while (resultSet.next()) {
-				statement.setInt(1, farmers.getFarmer_Id());
-				statement.setString(2, farmers.getFarmer_Name());
-				statement.setString(3, farmers.getFarmer_Address());
+				statement.setInt(1, farmers.getFarmerId());
+				statement.setString(2, farmers.getFarmerName());
+				statement.setString(3, farmers.getFarmerAddress());
 				((PreparedStatement) resultSet).executeUpdate();
 			}
 		} catch (SQLException e) {
@@ -92,9 +92,9 @@ public class FarmersDAO implements IFarmersDAO {
 		try (PreparedStatement statement = connection.prepareStatement(UPDATE);
 				ResultSet resultSet = statement.executeQuery()) {
 			while (resultSet.next()) {
-				statement.setInt(1, farmers.getFarmer_Id());
-				statement.setString(2, farmers.getFarmer_Name());
-				statement.setString(3, farmers.getFarmer_Address());
+				statement.setInt(1, farmers.getFarmerId());
+				statement.setString(2, farmers.getFarmerName());
+				statement.setString(3, farmers.getFarmerAddress());
 				statement.executeUpdate();
 			}
 		} catch (SQLException e) {
@@ -111,9 +111,9 @@ public class FarmersDAO implements IFarmersDAO {
 		Connection connection = connectionPool.getConnection();
 		try (PreparedStatement statement = connection.prepareStatement(DELETE);
 				ResultSet resultSet = statement.executeQuery()) {
-			statement.setInt(1, farmers.getFarmer_Id());
-			statement.setString(2, farmers.getFarmer_Name());
-			statement.setString(3, farmers.getFarmer_Address());
+			statement.setInt(1, farmers.getFarmerId());
+			statement.setString(2, farmers.getFarmerName());
+			statement.setString(3, farmers.getFarmerAddress());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			LOGGER.error("Unable to execute Prepared Statement.");

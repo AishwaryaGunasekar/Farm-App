@@ -15,76 +15,80 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 @XmlRootElement(name = "harvests")
 public class Harvests {
 
-	@JsonProperty(value = "harvest_id")
+	@JsonProperty(value = "harvestid")
 	@XmlAttribute
-	private int harvest_Id;
+	private int harvestId;
 
-	@JsonProperty(value = "field_id")
+	@JsonProperty(value = "fieldid")
 	@XmlAttribute
-	private int field_Id;
+	private int fieldId;
 
-	@JsonProperty(value = "crop_id")
+	@JsonProperty(value = "cropid")
 	@XmlAttribute
-	private int crop_Id;
-	private Date harvest_Date;
+	private int cropId;
+	private Date harvestDate;
 
-	@JsonProperty(value = "harvested_quantity")
+	@JsonProperty(value = "harvestedquantity")
 	@XmlAttribute
-	private int harvested_Quantity;
+	private int harvestedQuantity;
 
-	public Harvests(int harvest_Id, int field_Id, int crop_Id, Date harvest_Date, int harvested_Quantity) {
+	public Harvests(int harvestId, int fieldId, int cropId, Date harvestDate, int harvestedQuantity) {
 		super();
-		this.harvest_Id = harvest_Id;
-		this.field_Id = field_Id;
-		this.crop_Id = crop_Id;
-		this.harvest_Date = harvest_Date;
-		this.harvested_Quantity = harvested_Quantity;
+		this.harvestId = harvestId;
+		this.fieldId = fieldId;
+		this.cropId = cropId;
+		this.harvestDate = harvestDate;
+		this.harvestedQuantity = harvestedQuantity;
 	}
 
-	public int getHarvest_Id() {
-		return harvest_Id;
+	public Harvests() {
+
 	}
 
-	public void setHarvest_Id(int harvest_Id) {
-		this.harvest_Id = harvest_Id;
+	public int getHarvestId() {
+		return harvestId;
 	}
 
-	public int getField_Id() {
-		return field_Id;
+	public void setHarvestId(int harvestId) {
+		this.harvestId = harvestId;
 	}
 
-	public void setField_Id(int field_Id) {
-		this.field_Id = field_Id;
+	public int getFieldId() {
+		return fieldId;
 	}
 
-	public int getCrop_Id() {
-		return crop_Id;
+	public void setFieldId(int fieldId) {
+		this.fieldId = fieldId;
 	}
 
-	public void setCrop_Id(int crop_Id) {
-		this.crop_Id = crop_Id;
+	public int getCropId() {
+		return cropId;
 	}
 
-	public Date getHarvest_Date() {
-		return harvest_Date;
+	public void setCropId(int cropId) {
+		this.cropId = cropId;
 	}
 
-	public void setHarvest_Date(Date harvest_Date) {
-		this.harvest_Date = harvest_Date;
+	public Date getHarvestDate() {
+		return harvestDate;
 	}
 
-	public int getHarvested_Quantity() {
-		return harvested_Quantity;
+	public void setHarvestDate(Date harvestDate) {
+		this.harvestDate = harvestDate;
 	}
 
-	public void setHarvested_Quantity(int harvested_Quantity) {
-		this.harvested_Quantity = harvested_Quantity;
+	public int getHarvestedQuantity() {
+		return harvestedQuantity;
+	}
+
+	public void setHarvestedQuantity(int harvestedQuantity) {
+		this.harvestedQuantity = harvestedQuantity;
 	}
 
 	@Override
 	public String toString() {
-		return "Harvests [harvest_Id=" + harvest_Id + ", field_Id=" + field_Id + ", crop_Id=" + crop_Id
-				+ ", harvest_Date=" + harvest_Date + ", harvested_Quantity=" + harvested_Quantity + "]";
+		return "Harvests [harvestId=" + harvestId + ", fieldId=" + fieldId + ", cropId=" + cropId + ", harvestDate="
+				+ harvestDate + ", harvestedQuantity=" + harvestedQuantity + "]";
 	}
 
 }

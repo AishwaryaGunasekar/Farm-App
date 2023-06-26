@@ -15,10 +15,10 @@ import com.solvd.farmapp.dao.ISalesDAO;
 public class SalesDAO implements ISalesDAO {
 
 	private static final Logger LOGGER = LogManager.getLogger(CropsDAO.class);
-	private static final String INSERT = "INSERT INTO Sales (sale_id,crop_id,sale_quantity,sales_price) VALUES (?, ?, ?)";
-	private static final String UPDATE = "UPDATE Sales SET sale_quantity=?,sales_price=? where sale_id=?";
-	private static final String DELETE = "DELETE FROM Sales WHERE crop_id = ?";
-	private static final String getByID = "SELECT * FROM Sales WHERE crop_id = ?";
+	private static final String INSERT = "INSERT INTO Sales (saleid,cropid,salequantity,salesprice) VALUES (?, ?, ?,?)";
+	private static final String UPDATE = "UPDATE Sales SET salequantity=?,salesprice=? where saleid=?";
+	private static final String DELETE = "DELETE FROM Sales WHERE cropid = ?";
+	private static final String getByID = "SELECT * FROM Sales WHERE cropid = ?";
 	private static final String getAll = "SELECT * FROM Sales";
 
 	@Override
@@ -30,9 +30,9 @@ public class SalesDAO implements ISalesDAO {
 			ResultSet resultSet = statement.executeQuery();
 			if (resultSet.next()) {
 				Sales sales = new Sales();
-				sales.setCrop_Id(resultSet.getInt("crop_id"));
-				sales.setSale_Id(resultSet.getInt("sale_id"));
-				sales.setSale_Price(resultSet.getInt("sale_price"));
+				sales.setCropId(resultSet.getInt("cropid"));
+				sales.setSaleId(resultSet.getInt("saleid"));
+				sales.setSalePrice(resultSet.getInt("saleprice"));
 			}
 		} catch (SQLException e) {
 			LOGGER.error("Unable to execute Prepared Statement.");
@@ -52,9 +52,9 @@ public class SalesDAO implements ISalesDAO {
 				ResultSet resultSet = statement.executeQuery()) {
 			while (resultSet.next()) {
 				Sales sales = new Sales();
-				sales.setCrop_Id(resultSet.getInt("crop_id"));
-				sales.setSale_Id(resultSet.getInt("sale_id"));
-				sales.setSale_Price(resultSet.getInt("sale_price"));
+				sales.setCropId(resultSet.getInt("cropid"));
+				sales.setSaleId(resultSet.getInt("saleid"));
+				sales.setSalePrice(resultSet.getInt("saleprice"));
 				salesList.add(sales);
 			}
 		} catch (SQLException e) {
@@ -72,8 +72,8 @@ public class SalesDAO implements ISalesDAO {
 		ConnectionPool connectionPool = ConnectionPool.getInstance();
 		Connection connection = connectionPool.getConnection();
 		try (PreparedStatement statement = connection.prepareStatement(INSERT)) {
-			statement.setInt(1, sale.getSale_Id());
-			statement.setInt(2, sale.getSale_Quantity());
+			statement.setInt(1, sale.getSaleId());
+			statement.setInt(2, sale.getSaleQuantity());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			LOGGER.error("Unable to execute Prepared Statement.");
@@ -89,8 +89,8 @@ public class SalesDAO implements ISalesDAO {
 		ConnectionPool connectionPool = ConnectionPool.getInstance();
 		Connection connection = connectionPool.getConnection();
 		try (PreparedStatement statement = connection.prepareStatement(UPDATE)) {
-			statement.setInt(1, sale.getSale_Id());
-			statement.setInt(2, sale.getSale_Quantity());
+			statement.setInt(1, sale.getSaleId());
+			statement.setInt(2, sale.getSaleQuantity());
 
 			statement.executeUpdate();
 		} catch (SQLException e) {
@@ -107,8 +107,8 @@ public class SalesDAO implements ISalesDAO {
 		ConnectionPool connectionPool = ConnectionPool.getInstance();
 		Connection connection = connectionPool.getConnection();
 		try (PreparedStatement statement = connection.prepareStatement(DELETE)) {
-			statement.setInt(1, sale.getSale_Id());
-			statement.setInt(2, sale.getSale_Quantity());
+			statement.setInt(1, sale.getSaleId());
+			statement.setInt(2, sale.getSaleQuantity());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			LOGGER.error("Unable to execute Prepared Statement");

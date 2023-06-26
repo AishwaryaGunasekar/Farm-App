@@ -21,7 +21,7 @@ public class CropsService implements ICropsService {
 
 	public CropsService() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
 	@Override
@@ -65,7 +65,7 @@ public class CropsService implements ICropsService {
 
 	@Override
 	public Crops getCropsById(int id) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 

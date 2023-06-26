@@ -2,10 +2,10 @@
 <farmers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 	<farmer>
-		<farmer_id>1</farmer_id>
-		<farmer_name>Guna</farmer_name>
-		<farmer_address>18 venkata street</farmer_address>
-		<farmer_phone>9790945985</farmer_phone>
+		<farmerid>1</farmerid>
+		<farmername>Guna</farmername>
+		<farmeraddress>18 venkata street</farmeraddress>
+		<farmerphone>9790945985</farmerphone>
 	</farmer>
 
 </farmers>

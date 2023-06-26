@@ -13,72 +13,70 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 @XmlRootElement(name = "livestock")
 public class LiveStock {
 
-	@JsonProperty(value = "livestock_Id")
+	@JsonProperty(value = "livestockId")
 	@XmlAttribute
-	private int livestock_Id;
+	private int livestockId;
 
-	@JsonProperty(value = "livestock_Type")
+	@JsonProperty(value = "livestockType")
 	@XmlAttribute
-	private String livestock_Type;
+	private String livestockType;
 
-	@JsonProperty(value = "livestock_Type")
+	@JsonProperty(value = "livestockBreed")
 	@XmlAttribute
-	private String livestock_Breed;
+	private String livestockBreed;
 
-	@JsonProperty(value = "livestock_Quantity")
+	@JsonProperty(value = "livestockQuantity")
 	@XmlAttribute
-	private String livestock_Quantity;
+	private String livestockQuantity;
 
-	public LiveStock(int livestock_Id, String livestock_Type, String livestock_Breed, String livestock_Quantity) {
+	public LiveStock(int livestockId, String livestockType, String livestockBreed, String livestockQuantity) {
 		super();
-		this.livestock_Id = livestock_Id;
-		this.livestock_Type = livestock_Type;
-		this.livestock_Breed = livestock_Breed;
-		this.livestock_Quantity = livestock_Quantity;
+		this.livestockId = livestockId;
+		this.livestockType = livestockType;
+		this.livestockBreed = livestockBreed;
+		this.livestockQuantity = livestockQuantity;
 	}
 
 	public LiveStock() {
-		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
-	public int getLivestock_Id() {
-		return livestock_Id;
+	public int getLivestockId() {
+		return livestockId;
 	}
 
-	public void setLivestock_Id(int livestock_Id) {
-		this.livestock_Id = livestock_Id;
+	public void setLivestockId(int livestockId) {
+		this.livestockId = livestockId;
 	}
 
-	public String getLivestock_Type() {
-		return livestock_Type;
+	public String getLivestockType() {
+		return livestockType;
 	}
 
-	public void setLivestock_Type(String livestock_Type) {
-		this.livestock_Type = livestock_Type;
+	public void setLivestockType(String livestockType) {
+		this.livestockType = livestockType;
 	}
 
-	public String getLivestock_Breed() {
-		return livestock_Breed;
+	public String getLivestockBreed() {
+		return livestockBreed;
 	}
 
-	public void setLivestock_Breed(String livestock_Breed) {
-		this.livestock_Breed = livestock_Breed;
+	public void setLivestockBreed(String livestockBreed) {
+		this.livestockBreed = livestockBreed;
 	}
 
-	public String getLivestock_Quantity() {
-		return livestock_Quantity;
+	public String getLivestockQuantity() {
+		return livestockQuantity;
 	}
 
-	public void setLivestock_Quantity(String livestock_Quantity) {
-		this.livestock_Quantity = livestock_Quantity;
+	public void setLivestockQuantity(String livestockQuantity) {
+		this.livestockQuantity = livestockQuantity;
 	}
 
 	@Override
 	public String toString() {
-		return "LiveStock [livestock_Id=" + livestock_Id + ", livestock_Type=" + livestock_Type + ", livestock_Breed="
-				+ livestock_Breed + ", livestock_Quantity=" + livestock_Quantity + "]";
+		return "LiveStock [livestockId=" + livestockId + ", livestockType=" + livestockType + ", livestockBreed="
+				+ livestockBreed + ", livestockQuantity=" + livestockQuantity + "]";
 	}
-	
 
 }

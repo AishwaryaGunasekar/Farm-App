@@ -4,23 +4,23 @@
 <mapper namespace="com.solvd.farm.mappers.CropsMapper">
 
 	<insert id="saveCrops" parameterType="com.solvd.farmapp.bin.Crops">
-		INSERT INTO crops (crop_Id, Crop_Name, crop_type, crop_yield) VALUES
+		INSERT INTO Crops (cropid, cropname, croptype, cropyield) VALUES
 	(#{cropId},#{cropName}, #{cropType},#{cropType})
 	</insert>
 	
 	<update
 		id="updateCrops" parameterType="com.solvd.farmapp.bin.Crops">
-		UPDATE crops SET crop_name = ?, crop_type = ?, crop_yield = ? WHERE
-	crop_id = ?";
+		UPDATE Crops SET cropname = ?, croptype = ?, cropyield = ? WHERE
+	cropid = ?";
 	</update>
 	
 	<delete id="deleteCrops" parameterType="com.solvd.farmapp.bin.Crops">
-	DELETE FROM crops WHERE crop_id = ?";
+	DELETE FROM Crops WHERE cropid = ?";
 	</delete>
 	<select
 		id="getCropsById" parameterType="int"
 		resultType="com.solvd.farmapp.bin.Crops">
-		SELECT * FROM crops WHERE crop_Id = #{cropId}
+		SELECT * FROM Crops WHERE cropid = #{cropId}
 	</select>
 
 </mapper>

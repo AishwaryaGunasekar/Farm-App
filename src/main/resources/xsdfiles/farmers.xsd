@@ -11,10 +11,10 @@
 
   <xs:complexType name="farmerType">
     <xs:sequence>
-      <xs:element name="farmer_id" type="xs:int"/>
-      <xs:element name="farmer_name" type="xs:string"/>
-      <xs:element name="farmer_address" type="xs:string"/>
-      <xs:element name="farmer_phone" type="xs:long"/>
+      <xs:element name="farmerid" type="xs:int"/>
+      <xs:element name="farmername" type="xs:string"/>
+      <xs:element name="farmeraddress" type="xs:string"/>
+      <xs:element name="farmerphone" type="xs:long"/>
     </xs:sequence>
   </xs:complexType>
 
